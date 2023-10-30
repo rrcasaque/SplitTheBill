@@ -3,4 +3,8 @@
     <string name="payListTitle">Lista de Pagamentos</string>
     <string name="registerPaymentTitle">Cadastrar Pagamento</string>
     <string name="dividePaymentTitle">Fazer Racha</string>
+    <string name="registerTitle">Cadastrar</string>
+    <string name="namePlaceholder">Nome</string>
+    <string name="valuePlaceholder">Valor Pago</string>
+    <string name="boughtPlaceholder">O que comprou</string>
 </resources>
