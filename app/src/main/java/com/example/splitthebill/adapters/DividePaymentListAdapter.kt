@@ -13,7 +13,7 @@ import com.example.splitthebill.domain.services.PaymentService
 
 class DividePaymentListAdapter(
     private val context: Context,
-    private val paymentList: List<Payment>
+    private var paymentList: List<Payment>
 ) : BaseAdapter() {
 
     override fun getCount(): Int {
@@ -29,7 +29,7 @@ class DividePaymentListAdapter(
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.payment_list_item, null)
+        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.payment_list_divide, null)
 
         val payment = paymentList[position]
 
@@ -51,6 +51,7 @@ class DividePaymentListAdapter(
 
         excluirButton.setOnClickListener {
             PaymentService.removePaymentByName(payment.name)
+            paymentList = paymentList.filter { it.name != payment.name }
             notifyDataSetChanged()
         }
 
