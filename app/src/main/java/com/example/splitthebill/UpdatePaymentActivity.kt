@@ -48,7 +48,7 @@ class UpdatePaymentActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
-            Toast.makeText(this, "Pagamento cadastrado com sucesso", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Pagamento editado com sucesso", Toast.LENGTH_SHORT).show()
         }
 
     }
