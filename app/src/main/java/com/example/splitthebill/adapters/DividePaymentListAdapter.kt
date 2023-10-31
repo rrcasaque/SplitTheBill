@@ -39,12 +39,12 @@ class DividePaymentListAdapter(
         val excluirButton = view.findViewById<Button>(R.id.excluirButton)
 
         nomeTextView.text = payment.name
-        oQueComprouTextView.text = payment.whatWasBought
+        oQueComprouTextView.text = payment.whatWasBoughtFirstItem
 
-        val formattedAmountPaid = if (payment.amountPaid >= 0) {
-            "Receberá R$ ${payment.amountPaid}"
+        val formattedAmountPaid = if (payment.amountPaidFirstItem >= 0) {
+            "Receberá R$ ${payment.amountPaidFirstItem}"
         } else {
-            "Deverá pagar R$ ${-payment.amountPaid}"
+            "Deverá pagar R$ ${-payment.amountPaidFirstItem}"
         }
 
         valorTextView.text = formattedAmountPaid

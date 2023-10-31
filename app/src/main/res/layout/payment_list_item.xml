@@ -17,13 +17,33 @@
         android:id="@+id/oQueComprouTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/whatBuy" />
+        android:text="Descrição do item 1: " />
 
     <TextView
         android:id="@+id/valorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/boughtValue" />
+        android:text="Valor pago do item 1: " />
+    <TextView
+        android:id="@+id/oQueComprouTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descrição do item 2: " />
+    <TextView
+        android:id="@+id/valorTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor pago do item 2: " />
+    <TextView
+        android:id="@+id/oQueComprouTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descrição do item 3: " />
+    <TextView
+        android:id="@+id/valorTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor pago do item 3: " />
 
     <Button
         android:id="@+id/excluirButton"
