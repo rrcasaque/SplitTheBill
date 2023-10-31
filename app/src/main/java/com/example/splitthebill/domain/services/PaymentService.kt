@@ -35,4 +35,10 @@ object PaymentService {
         return null
     }
 
+    fun updatePaymentByName(name: String, updatedPayment: Payment) {
+        val index = paymentList.indexOfFirst { it.name == name }
+        if (index != -1) {
+            paymentList[index] = updatedPayment
+        }
+    }
 }
