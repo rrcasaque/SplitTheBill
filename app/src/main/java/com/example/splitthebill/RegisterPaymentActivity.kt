@@ -15,8 +15,6 @@ class RegisterPaymentActivity : AppCompatActivity() {
     private lateinit var editOQueComprou: EditText
     private lateinit var btnCadastrar: Button
 
-    private val paymentService = PaymentService()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_payment)
@@ -38,7 +36,7 @@ class RegisterPaymentActivity : AppCompatActivity() {
             val payment = Payment(nome, valorPago, oQueComprou)
 
             // Adicionar o objeto Payment à lista usando o PaymentService
-            paymentService.addPayment(payment)
+            PaymentService.addPayment(payment)
 
             // Limpar os campos de entrada
             editNome.text.clear()

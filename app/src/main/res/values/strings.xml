@@ -7,4 +7,7 @@
     <string name="namePlaceholder">Nome</string>
     <string name="valuePlaceholder">Valor Pago</string>
     <string name="boughtPlaceholder">O que comprou</string>
+    <string name="boughtValue">Valor Pago:</string>
+    <string name="name">Nome:</string>
+    <string name="whatBuy">O que comprou:</string>
 </resources>

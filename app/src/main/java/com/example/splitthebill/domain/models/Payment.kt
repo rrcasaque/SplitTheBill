@@ -5,3 +5,4 @@ class Payment(
     var amountPaid: Double,
     var whatWasBought: String
 )
+

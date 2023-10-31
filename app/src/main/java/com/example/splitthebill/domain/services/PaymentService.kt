@@ -1,8 +1,9 @@
 package com.example.splitthebill.domain.services
 
 import com.example.splitthebill.domain.models.Payment
+import java.io.Serializable
 
-class PaymentService {
+object PaymentService {
     private val paymentList = mutableListOf<Payment>()
 
     // Adicionar um pagamento à lista
