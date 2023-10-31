@@ -31,4 +31,10 @@
         android:layout_height="wrap_content"
         android:text="Excluir" />
 
+    <Button
+        android:id="@+id/editarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar" />
+
 </LinearLayout>

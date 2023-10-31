@@ -1,6 +1,7 @@
 package com.example.splitthebill.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,10 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import com.example.splitthebill.R
+import com.example.splitthebill.UpdatePaymentActivity
 import com.example.splitthebill.domain.models.Payment
 import com.example.splitthebill.domain.services.PaymentService
+import com.example.splitthebill.repositories.DataManager
 
 class PaymentListAdapter(context: Context, paymentList: List<Payment>) :
     ArrayAdapter<Payment>(context, 0, paymentList) {
@@ -29,6 +32,7 @@ class PaymentListAdapter(context: Context, paymentList: List<Payment>) :
         val valorPagoTextView = listItemView?.findViewById<TextView>(R.id.valorTextView)
         val oQueComprouTextView = listItemView?.findViewById<TextView>(R.id.oQueComprouTextView)
         val excluirButton = listItemView?.findViewById<Button>(R.id.excluirButton)
+        val editarButton = listItemView?.findViewById<Button>(R.id.editarButton)
 
         nomeTextView?.text = payment?.name
         valorPagoTextView?.text = payment?.amountPaid.toString()
@@ -40,6 +44,18 @@ class PaymentListAdapter(context: Context, paymentList: List<Payment>) :
             }
             notifyDataSetChanged()
         }
+
+        editarButton?.setOnClickListener {
+            if (payment != null) {
+                val intent = Intent(context, UpdatePaymentActivity::class.java)
+                intent.putExtra("name", payment.name)
+                intent.putExtra("amountPaid", payment.amountPaid)
+                intent.putExtra("whatWasBought", payment.whatWasBought)
+                context.startActivity(intent)
+            }
+        }
+
+
 
         return listItemView!!
     }
