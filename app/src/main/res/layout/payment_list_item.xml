@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:text="@string/boughtValue" />
 
+    <Button
+        android:id="@+id/excluirButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excluir" />
+
 </LinearLayout>

@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.TextView
 import com.example.splitthebill.R
 import com.example.splitthebill.domain.models.Payment
+import com.example.splitthebill.domain.services.PaymentService
 
 class PaymentListAdapter(context: Context, paymentList: List<Payment>) :
     ArrayAdapter<Payment>(context, 0, paymentList) {
@@ -26,10 +28,19 @@ class PaymentListAdapter(context: Context, paymentList: List<Payment>) :
         val nomeTextView = listItemView?.findViewById<TextView>(R.id.nomeTextView)
         val valorPagoTextView = listItemView?.findViewById<TextView>(R.id.valorTextView)
         val oQueComprouTextView = listItemView?.findViewById<TextView>(R.id.oQueComprouTextView)
+        val excluirButton = listItemView?.findViewById<Button>(R.id.excluirButton)
 
         nomeTextView?.text = payment?.name
         valorPagoTextView?.text = payment?.amountPaid.toString()
         oQueComprouTextView?.text = payment?.whatWasBought
+
+        excluirButton?.setOnClickListener {
+            // Ao clicar no botão "Excluir", remova o pagamento da lista
+            if (payment != null) {
+                PaymentService.removePaymentByName(payment.name)
+            }
+            notifyDataSetChanged() // Notificar o adaptador para atualizar a exibição
+        }
 
         return listItemView!!
     }
