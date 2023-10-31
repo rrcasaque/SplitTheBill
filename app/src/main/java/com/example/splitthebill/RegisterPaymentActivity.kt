@@ -2,12 +2,12 @@ package com.example.splitthebill
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitthebill.domain.models.Payment
 import com.example.splitthebill.domain.services.PaymentService
+import android.widget.Toast
 
 class RegisterPaymentActivity : AppCompatActivity() {
     private lateinit var editNome: EditText
@@ -44,6 +44,13 @@ class RegisterPaymentActivity : AppCompatActivity() {
             editNome.text.clear()
             editValorPago.text.clear()
             editOQueComprou.text.clear()
+
+            // Criar um Intent para iniciar a MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+            // Exibir um Toast informando o sucesso do cadastro
+            Toast.makeText(this, "Pagamento cadastrado com sucesso", Toast.LENGTH_SHORT).show()
         }
     }
 }
