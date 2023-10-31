@@ -20,4 +20,19 @@ object PaymentService {
     fun getAllPayments(): List<Payment> {
         return paymentList
     }
+
+    fun splitPayments(): List<Payment>? {
+        if (paymentList.isNotEmpty()) {
+            val total = paymentList.map { it.amountPaid }.sum()
+            val avg = total / paymentList.size
+            val paymentSplitList = paymentList.map { payment ->
+                val newAmountPaid = payment.amountPaid - avg
+                Payment(payment.name, newAmountPaid, payment.whatWasBought)
+            }
+
+            return paymentSplitList
+        }
+        return null
+    }
+
 }

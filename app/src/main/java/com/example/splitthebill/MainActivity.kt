@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnCadastrarPagamento = findViewById<Button>(R.id.btnCadastrarPagamento)
         val btnListaPagamentos = findViewById<Button>(R.id.btnListaPagamentos)
+        val btnFazerRacha = findViewById<Button>(R.id.btnFazerRacha)
 
         btnCadastrarPagamento.setOnClickListener {
             val intent = Intent(this, RegisterPaymentActivity::class.java)
@@ -28,6 +29,17 @@ class MainActivity : AppCompatActivity() {
             if (payments.isNotEmpty()) {
                 DataManager.setPaymentList(payments)
                 val intent = Intent(this, PaymentListActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "A lista de pagamentos está vazia.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnFazerRacha.setOnClickListener {
+            val payments = PaymentService.getAllPayments()
+            if (payments.isNotEmpty()) {
+                DataManager.setPaymentList(PaymentService.splitPayments()!!)
+                val intent = Intent(this, DividePaymentActivity::class.java)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "A lista de pagamentos está vazia.", Toast.LENGTH_SHORT).show()

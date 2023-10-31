@@ -35,11 +35,10 @@ class PaymentListAdapter(context: Context, paymentList: List<Payment>) :
         oQueComprouTextView?.text = payment?.whatWasBought
 
         excluirButton?.setOnClickListener {
-            // Ao clicar no botão "Excluir", remova o pagamento da lista
             if (payment != null) {
                 PaymentService.removePaymentByName(payment.name)
             }
-            notifyDataSetChanged() // Notificar o adaptador para atualizar a exibição
+            notifyDataSetChanged()
         }
 
         return listItemView!!
